@@ -8,6 +8,7 @@
              (gnu packages)
              (gnu services)
              (guix gexp)
+	     (gnu home services)
              (gnu home services shells))
 
 (home-environment
@@ -53,8 +54,12 @@
                               ("la" . "ls -A")
                               ("ll" . "ls -alF")
                               ("ls" . "ls --color=auto")))
-                   (bashrc (list (local-file "files/bashrc"
+                   (bashrc (list (local-file "dotfiles/bashrc"
                                              "bashrc")))
                    (bash-logout (list (local-file
-                                       "files/bash_logout"
-                                       "bash_logout"))))))))
+                                       "dotfiles/bash_logout"
+                                       "bash_logout")))))
+	 (simple-service 'my-dotfiles
+			 home-files-service-type
+			 `((".emacs" ,(local-file "dotfiles/emacs"))
+			   (".gitconfig" ,(local-file "dotfiles/gitconfig")))))))
