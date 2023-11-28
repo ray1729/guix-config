@@ -38,6 +38,7 @@
 				      "git-lfs"
 				      "glibc-locales"
 				      "gnucash"
+				      "nss-certs"
 				      "openjdk"
 				      "password-store"
 				      "recutils")))
